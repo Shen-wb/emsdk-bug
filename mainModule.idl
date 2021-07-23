@@ -1,0 +1,4 @@
+interface MainModule{
+  void MainModule(DOMString name, DOMString birthday);
+  DOMString getInfo();
+};
