@@ -36,3 +36,9 @@ $ emmake make
 ## Note
 
 `html` need to be host in an HTTP server. The mimetype of `.wasm` needs to set as `application/wasm`.
+
+
+
+## Todo
+
+Test if `char *` in webidl has memory leak.
