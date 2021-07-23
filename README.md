@@ -35,4 +35,4 @@ $ emmake make
 
 ## Note
 
-`html` need to be host in an HTTP server. The mimetype of `.wasm` need set to `application/wasm`.
+`html` need to be host in an HTTP server. The mimetype of `.wasm` needs to set as `application/wasm`.
