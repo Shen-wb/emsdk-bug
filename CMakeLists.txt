@@ -10,18 +10,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # maybe usefull option for compile and link
 # -s ALLOW_TABLE_GROWTH
 # -fPIC
-# -s DISABLE_EXCEPTION_CATCHING=0
+# -s DISABLE_EXCEPTION_CATCHING=1
+# -s EXCEPTION_CATCHING_ALLOWED=[]
 # -msimd128
 # -fexceptions
-# -s EXCEPTION_CATCHING_ALLOWED
-#  -fno-PIC
+# -fno-PIC
+# -s ALLOW_MEMORY_GROWTH=1
+# --no-entry
+# -flto
 
 # set compile options
-add_compile_options(-Oz --bind -mnontrapping-fptoint)
+add_compile_options(-Oz --bind -mnontrapping-fptoint -s DISABLE_EXCEPTION_CATCHING=1)
 
 # set link options
 #add_link_options(-Oz) # require cmake >= 3.13
-set(CMAKE_EXE_LINKER_FLAGS "-Oz --bind -mnontrapping-fptoint -s ALLOW_TABLE_GROWTH ${CMAKE_EXE_LINKER_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS "-Oz --bind -mnontrapping-fptoint -s DISABLE_EXCEPTION_CATCHING=1 ${CMAKE_EXE_LINKER_FLAGS}")
 
 # add the executable for A
 add_executable(A A.cpp)
