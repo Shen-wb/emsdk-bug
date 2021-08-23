@@ -19,6 +19,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # --no-entry
 # -flto
 
+# when use multiple "-s" in old cmake: https://gitlab.kitware.com/cmake/cmake/-/issues/15826
+
 # set compile options
 add_compile_options(-Oz --bind -mnontrapping-fptoint -s DISABLE_EXCEPTION_CATCHING=1)
 
