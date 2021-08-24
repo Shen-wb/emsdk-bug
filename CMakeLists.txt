@@ -18,10 +18,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # -s ALLOW_MEMORY_GROWTH=1
 # --no-entry
 # -flto
-
-# when use multiple "-s" in old cmake: https://gitlab.kitware.com/cmake/cmake/-/issues/15826
+# --closure 1
 
 # set compile options
+# when use multiple "-s" in old cmake: https://gitlab.kitware.com/cmake/cmake/-/issues/15826
+# or you can use set_target_properties instead
 add_compile_options(-Oz --bind -mnontrapping-fptoint -s DISABLE_EXCEPTION_CATCHING=1)
 
 # set link options
