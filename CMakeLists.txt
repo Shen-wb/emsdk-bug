@@ -27,7 +27,8 @@ add_compile_options(-Oz --bind -mnontrapping-fptoint -s DISABLE_EXCEPTION_CATCHI
 
 # set link options
 #add_link_options(-Oz) # require cmake >= 3.13
-set(CMAKE_EXE_LINKER_FLAGS "-Oz --bind -mnontrapping-fptoint -s DISABLE_EXCEPTION_CATCHING=1 ${CMAKE_EXE_LINKER_FLAGS}")
+# -mnontrapping-fptoint # safari in ios not support it
+set(CMAKE_EXE_LINKER_FLAGS "-Oz --bind -s DISABLE_EXCEPTION_CATCHING=1 ${CMAKE_EXE_LINKER_FLAGS}")
 
 # add the executable for A
 add_executable(A A.cpp)
