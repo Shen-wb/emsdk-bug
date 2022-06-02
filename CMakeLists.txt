@@ -37,7 +37,7 @@ target_include_directories(A PUBLIC
   "/home/keillion/emsdk/upstream/emscripten/system/include"
 )
 
-# https://github.com/emscripten-core/emscripten/wiki/Linking
+# https://emscripten.org/docs/compiling/Dynamic-Linking.html
 
 # add the executable for mainModule
 add_executable(mainModule mainModule.cpp)
@@ -55,5 +55,6 @@ target_include_directories(sideModule PUBLIC
   "/home/keillion/emsdk/upstream/emscripten/system/include"
 )
 
-set_target_properties(sideModule PROPERTIES COMPILE_FLAGS " -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" LINK_FLAGS " -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" SUFFIX ".wasm")
+# use -v to get more info about `including lib[...]` messages
+set_target_properties(sideModule PROPERTIES COMPILE_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" LINK_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" SUFFIX ".wasm")
 
