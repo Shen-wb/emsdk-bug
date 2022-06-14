@@ -15,7 +15,7 @@ Test: `testA.html`
 
 ## Class MainModule
 
-[Dynamic link](https://github.com/emscripten-core/emscripten/wiki/Linking) sideModule.
+[Dynamic link](https://emscripten.org/docs/compiling/Dynamic-Linking.html) sideModule.
 
 Use [webidl](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/WebIDL-Binder.html).
 
@@ -31,6 +31,10 @@ $ emcmake cmake .
 $ emmake make
 ``` 
 
+In order to see which system libs are actually needed. [refer](https://emscripten.org/docs/compiling/Dynamic-Linking.html#system-libraries)
+```shell
+$ emmake make VERBOSE=1
+```
 
 
 ## Note
