@@ -7,6 +7,8 @@ project(A VERSION 1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
 # maybe usefull option for compile and link
 # -s ALLOW_TABLE_GROWTH
 # -fPIC
