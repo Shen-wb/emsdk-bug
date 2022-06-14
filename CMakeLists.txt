@@ -7,6 +7,10 @@ project(A VERSION 1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+set(EM_BUILD_VERBOSE 1)
+set(CMAKE_VERBOSE_MAKEFILE 1)
+set(VERBOSE 1)
+
 # maybe usefull option for compile and link
 # -s ALLOW_TABLE_GROWTH
 # -fPIC
@@ -56,5 +60,5 @@ target_include_directories(sideModule PUBLIC
 )
 
 # use -v to get more info about `including lib[...]` messages
-set_target_properties(sideModule PROPERTIES COMPILE_FLAGS " -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" LINK_FLAGS " -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" SUFFIX ".wasm")
+set_target_properties(sideModule PROPERTIES COMPILE_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" LINK_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" SUFFIX ".wasm")
 
