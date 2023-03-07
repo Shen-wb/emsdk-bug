@@ -5,28 +5,33 @@
 </head>
 <body>
   <button onclick="addModule()">add side module</button>
+  <button onclick="createSideModule()">create side module instance</button>
   <button onclick="getInfo()">get info</button>
   <button onclick="getFb()">fb</button>
   <script>
     var Module = {};
-  var myMainModule;
-  // Module.dynamicLibraries = [];
-  Module.dynamicLibraries = ['sideModule.wasm'];
-  Module.onRuntimeInitialized = function(){
-    myMainModule = new SideModule("shen","19971224");
-    console.log("myMainModule: ", myMainModule);
-    // console.log(myMainModule.getInfo());
-  };
-  function addModule() {
-    Module.dynamicLibraries.push('sideModule.wasm');
-    Module.preloadDylibs();
-  }
-  function getInfo() {
-    console.log(myMainModule.getInfo());
-  }
-  function getFb() {
-    console.log(myMainModule.fb(10));
-  }
+    var myMainModule;
+    var mySideModule;
+    // Module.dynamicLibraries = [];
+    Module.dynamicLibraries = ['sideModule.wasm'];
+    Module.onRuntimeInitialized = function(){
+      myMainModule = new MainModule("shen","19971224");
+      console.log("myMainModule: ", myMainModule);
+    };
+    function addModule() {
+      Module.dynamicLibraries.push('sideModule.wasm');
+      Module.preloadDylibs();
+    }
+    function createSideModule() {
+      mySideModule = new SideModule("shen","19971224");
+      console.log("mySideModule: ", mySideModule);
+    }
+    function getInfo() {
+      console.log(myMainModule.getInfo());
+    }
+    function getFb() {
+      console.log(mySideModule.fb(10));
+    }
   </script>
   <script src="./mainModule.js"></script>
   <script src="./sideModuleGlue.js"></script>
