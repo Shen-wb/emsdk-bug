@@ -2,17 +2,6 @@
 
 Use cmake + [emsdk](https://emscripten.org/index.html) to build multiple wasm in one time.
 
-
-
-## Class A
-
-Use [embind](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html).
-
-Test: `testA.html`
-
-
-
-
 ## Class MainModule
 
 [Dynamic link](https://emscripten.org/docs/compiling/Dynamic-Linking.html) sideModule.
