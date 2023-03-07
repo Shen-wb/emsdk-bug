@@ -13,6 +13,7 @@ public:
   string birthday;
   SideModule(const char* name, const char* birthday);
   char* getInfo();
+  long long fb(int n);
 };
 
 //}

@@ -27,19 +27,19 @@ set(VERBOSE 1)
 # when use multiple "-s" in old cmake: https://gitlab.kitware.com/cmake/cmake/-/issues/15826
 # or you can use set_target_properties instead
 # -mnontrapping-fptoint # safari in ios not support it
-add_compile_options(-Oz --bind -s DISABLE_EXCEPTION_CATCHING=1 -flto)
+add_compile_options(--bind -s DISABLE_EXCEPTION_CATCHING=1 -flto)
 
 # set link options
 #add_link_options(-Oz) # require cmake >= 3.13
 # -mnontrapping-fptoint # safari in ios not support it
-set(CMAKE_EXE_LINKER_FLAGS "-Oz --bind -s DISABLE_EXCEPTION_CATCHING=1 ${CMAKE_EXE_LINKER_FLAGS} -flto")
+set(CMAKE_EXE_LINKER_FLAGS "--bind -s DISABLE_EXCEPTION_CATCHING=1 ${CMAKE_EXE_LINKER_FLAGS} -flto")
 
 # add the executable for A
-add_executable(A A.cpp)
+# add_executable(A A.cpp)
 
-target_include_directories(A PUBLIC
-  "/home/keillion/emsdk/upstream/emscripten/system/include"
-)
+# target_include_directories(A PUBLIC
+# "/home/keillion/emsdk/upstream/emscripten/system/include"
+# )
 
 # https://emscripten.org/docs/compiling/Dynamic-Linking.html
 
@@ -47,7 +47,7 @@ target_include_directories(A PUBLIC
 add_executable(mainModule mainModule.cpp)
 
 target_include_directories(mainModule PUBLIC
-  "/home/keillion/emsdk/upstream/emscripten/system/include"
+  "/home/ubuntu/Desktop/dynamic_linking/emsdk-cheatlist/"
 )
 
 set_target_properties(mainModule PROPERTIES COMPILE_FLAGS " -s MAIN_MODULE=1 -fPIC -s ERROR_ON_UNDEFINED_SYMBOLS=0" LINK_FLAGS " -s MAIN_MODULE=1 -fPIC -s ERROR_ON_UNDEFINED_SYMBOLS=0 --post-js mainModuleGlue.js")
@@ -56,7 +56,7 @@ set_target_properties(mainModule PROPERTIES COMPILE_FLAGS " -s MAIN_MODULE=1 -fP
 add_executable(sideModule sideModule.cpp)
 
 target_include_directories(sideModule PUBLIC
-  "/home/keillion/emsdk/upstream/emscripten/system/include"
+  "/home/ubuntu/Desktop/dynamic_linking/emsdk-cheatlist/"
 )
 
 # use -v to get more info about `including lib[...]` messages

@@ -4,14 +4,31 @@
 <meta charset="utf-8">
 </head>
 <body>
-<script>
-var Module = {};
-Module.dynamicLibraries = ['sideModule.wasm'];
-Module.onRuntimeInitialized = function(){
-  var myMainModule = new MainModule("zzz","20200201");
-  console.log(myMainModule.getInfo());
-};
-</script>
-<script src="./mainModule.js"></script>
+  <button onclick="addModule()">add side module</button>
+  <button onclick="getInfo()">get info</button>
+  <button onclick="getFb()">fb</button>
+  <script>
+    var Module = {};
+  var myMainModule;
+  // Module.dynamicLibraries = [];
+  Module.dynamicLibraries = ['sideModule.wasm'];
+  Module.onRuntimeInitialized = function(){
+    myMainModule = new SideModule("shen","19971224");
+    console.log("myMainModule: ", myMainModule);
+    // console.log(myMainModule.getInfo());
+  };
+  function addModule() {
+    Module.dynamicLibraries.push('sideModule.wasm');
+    Module.preloadDylibs();
+  }
+  function getInfo() {
+    console.log(myMainModule.getInfo());
+  }
+  function getFb() {
+    console.log(myMainModule.fb(10));
+  }
+  </script>
+  <script src="./mainModule.js"></script>
+  <script src="./sideModuleGlue.js"></script>
 </body>
 </html>
