@@ -40,6 +40,7 @@ $ emmake make VERBOSE=1
 ## Note
 
 `html` need to be host in an HTTP server. The mimetype of `.wasm` needs to set as `application/wasm`.
+
 After recompilation, you need to make small changes to the internal code of mainModule.js
 
 
