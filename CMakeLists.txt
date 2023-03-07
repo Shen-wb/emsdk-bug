@@ -62,3 +62,12 @@ target_include_directories(sideModule PUBLIC
 # use -v to get more info about `including lib[...]` messages
 set_target_properties(sideModule PROPERTIES COMPILE_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" LINK_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" SUFFIX ".wasm")
 
+# add the executable for sideModule
+add_executable(sideModuleTwo sideModuleTwo.cpp)
+
+target_include_directories(sideModuleTwo PUBLIC
+  "/home/ubuntu/Desktop/dynamic_linking/emsdk-cheatlist/"
+)
+
+# use -v to get more info about `including lib[...]` messages
+set_target_properties(sideModuleTwo PROPERTIES COMPILE_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" LINK_FLAGS " -v -s SIDE_MODULE=1 -fPIC -s EXPORT_ALL=1" SUFFIX ".wasm")

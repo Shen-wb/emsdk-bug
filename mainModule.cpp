@@ -16,9 +16,12 @@ MainModule::MainModule(const char* name, const char* birthday){
 }
 char* MainModule::getInfo(){
   auto sideModuleInstance = new SideModule(name.c_str(), birthday.c_str());
+  auto sideModule2Instance = new SideModuleTwo(name.c_str(), birthday.c_str());
   auto strSideModuleInfo = sideModuleInstance->getInfo();
+  auto strSideModuleInfo2 = sideModule2Instance->getInfo();
   delete sideModuleInstance;
-  auto strInfo = "mainModule: " + this->name + ", " + this->birthday + "\n" + strSideModuleInfo;
+  delete sideModule2Instance;
+  auto strInfo = "mainModule: " + this->name + ", " + this->birthday + "\n" + strSideModuleInfo + "\n" + strSideModuleInfo2;
   auto size = strInfo.size();
   auto pszInfo = new char[size+1];
   pszInfo[size] = '\0';

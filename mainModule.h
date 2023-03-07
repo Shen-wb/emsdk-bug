@@ -3,6 +3,7 @@
 
 #include <string>
 #include "sideModule.h"
+#include "sideModuleTwo.h"
 
 //class MainModule;
 //{

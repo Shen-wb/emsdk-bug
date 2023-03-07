@@ -5,15 +5,19 @@
 </head>
 <body>
   <button onclick="addModule()">add side module</button>
+  <button onclick="addModule2()">add side module2</button>
   <button onclick="createSideModule()">create side module instance</button>
+  <button onclick="createSideModule2()">create side module2 instance</button>
   <button onclick="getInfo()">get info</button>
   <button onclick="getFb()">fb</button>
+  <button onclick="generateRandomString()">generateRandomString</button>
   <script>
     var Module = {};
     var myMainModule;
     var mySideModule;
-    // Module.dynamicLibraries = [];
+    var mySideModule2;
     Module.dynamicLibraries = ['sideModule.wasm'];
+    // Module.dynamicLibraries = ['sideModule.wasm'];
     Module.onRuntimeInitialized = function(){
       myMainModule = new MainModule("shen","19971224");
       console.log("myMainModule: ", myMainModule);
@@ -21,10 +25,20 @@
     function addModule() {
       Module.dynamicLibraries.push('sideModule.wasm');
       Module.preloadDylibs();
+      console.log("add module");
+    }
+    function addModule2() {
+      Module.dynamicLibraries.push('sideModuleTwo.wasm');
+      Module.preloadDylibs();
+      console.log("add module2");
     }
     function createSideModule() {
       mySideModule = new SideModule("shen","19971224");
       console.log("mySideModule: ", mySideModule);
+    }
+    function createSideModule2() {
+      mySideModule2 = new SideModuleTwo("shen","19971224");
+      console.log("mySideModule2: ", mySideModule2);
     }
     function getInfo() {
       console.log(myMainModule.getInfo());
@@ -32,8 +46,12 @@
     function getFb() {
       console.log(mySideModule.fb(10));
     }
+    function generateRandomString() {
+      console.log(mySideModule2.generateRandomString(10));
+    }
   </script>
   <script src="./mainModule.js"></script>
   <script src="./sideModuleGlue.js"></script>
+  <script src="./sideModule2Glue.js"></script>
 </body>
 </html>
