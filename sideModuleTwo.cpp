@@ -25,9 +25,12 @@ const char* SideModuleTwo::generateRandomString(int len) {
     string result;
     srand(time(nullptr));
     for(int i=0;i<len;i++){
-        result += alphabet[rand() % alphabet.length()];
+      result += alphabet[rand() % alphabet.length()];
     }
-    return result.c_str();
+    auto pszRes = new char[result.size()+1];
+    pszRes[result.size()] = '\0';
+    strcpy(pszRes, result.c_str());
+    return pszRes;
 }
 
 extern "C" {

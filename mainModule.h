@@ -3,7 +3,7 @@
 
 #include <string>
 #include "sideModule.h"
-#include "sideModuleTwo.h"
+//#include "sideModuleTwo.h"
 
 //class MainModule;
 //{
@@ -15,6 +15,7 @@ public:
   string birthday;
   MainModule(const char* name, const char* birthday);
   char* getInfo();
+  int shenDebug(int n);
 };
 
 //}

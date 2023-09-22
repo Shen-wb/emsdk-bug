@@ -16,10 +16,12 @@
     var myMainModule;
     var mySideModule;
     var mySideModule2;
-    Module.dynamicLibraries = ['sideModule.wasm'];
-    // Module.dynamicLibraries = ['sideModule.wasm'];
+    Module.dynamicLibraries = [];
+    //Module.dynamicLibraries = ['sideModule.wasm'];
     Module.onRuntimeInitialized = function(){
       myMainModule = new MainModule("shen","19971224");
+      //Module.dynamicLibraries.push('sideModule.wasm');
+      //Module.preloadDylibs();
       console.log("myMainModule: ", myMainModule);
     };
     function addModule() {
@@ -41,7 +43,7 @@
       console.log("mySideModule2: ", mySideModule2);
     }
     function getInfo() {
-      console.log(myMainModule.getInfo());
+      console.log(myMainModule.shenDebug(4));
     }
     function getFb() {
       console.log(mySideModule.fb(10));
